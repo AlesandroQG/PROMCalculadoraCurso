@@ -50,57 +50,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      */
     override fun onClick(view: View?) {
         when(view) {
-            binding.bt0 -> {
-                onNumberPressed("0")
-            }
-            binding.bt1 -> {
-                onNumberPressed("1")
-            }
-            binding.bt2 -> {
-                onNumberPressed("2")
-            }
-            binding.bt3 -> {
-                onNumberPressed("3")
-            }
-            binding.bt4 -> {
-                onNumberPressed("4")
-            }
-            binding.bt5 -> {
-                onNumberPressed("5")
-            }
-            binding.bt6 -> {
-                onNumberPressed("6")
-            }
-            binding.bt7 -> {
-                onNumberPressed("7")
-            }
-            binding.bt8 -> {
-                onNumberPressed("8")
-            }
-            binding.bt9 -> {
-                onNumberPressed("9")
-            }
-            binding.btComma -> {
-                onNumberPressed(",")
-            }
-            binding.btPlus -> {
-                onOperationPressed("+")
-            }
-            binding.btMinus -> {
-                onOperationPressed("-")
-            }
-            binding.btMul -> {
-                onOperationPressed("*")
-            }
-            binding.btDiv -> {
-                onOperationPressed("/")
-            }
-            binding.btEqual -> {
-                onEqualPress()
-            }
-            binding.btClear -> {
-                onClearPress()
-            }
+            binding.bt0 -> onNumberPressed("0")
+            binding.bt1 -> onNumberPressed("1")
+            binding.bt2 -> onNumberPressed("2")
+            binding.bt3 -> onNumberPressed("3")
+            binding.bt4 -> onNumberPressed("4")
+            binding.bt5 -> onNumberPressed("5")
+            binding.bt6 -> onNumberPressed("6")
+            binding.bt7 -> onNumberPressed("7")
+            binding.bt8 -> onNumberPressed("8")
+            binding.bt9 -> onNumberPressed("9")
+            binding.btComma -> onNumberPressed(",")
+            binding.btPlus -> onOperationPressed("+")
+            binding.btMinus -> onOperationPressed("-")
+            binding.btMul -> onOperationPressed("*")
+            binding.btDiv -> onOperationPressed("/")
+            binding.btEqual -> onEqualPressed()
+            binding.btClear -> onClearPressed()
         }
     }
 
@@ -147,7 +113,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     /**
      * Función para cuando se pulsa el botón del igual de la calculadora
      */
-    private fun onEqualPress() {
+    private fun onEqualPressed() {
         val result = when(operation) {
             "+" -> firstNumber + secondNumber
             "-" -> firstNumber - secondNumber
@@ -158,18 +124,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         operation = null
         firstNumber = result.toDouble()
         secondNumber = 0.0
-        binding.screen.text = if (result.toString().endsWith(".0")) {
-            result.toString().replace(".0", "")
-        } else {
-            "%.2f".format(result)
+        try {
+            binding.screen.text = if (result.toString().endsWith(".0")) {
+                result.toString().replace(".0", "")
+            } else {
+                "%.2f".format(result)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
     /**
      * Función para cuando se pulsa el botón de clear de la calculadora
      */
-    private fun onClearPress() {
-        //
+    private fun onClearPressed() {
+        binding.screen.text = "0"
+        firstNumber = 0.0
+        secondNumber = 0.0
     }
 
 }
