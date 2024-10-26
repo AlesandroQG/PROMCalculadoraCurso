@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Calculadora" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+       <item name="colorPrimary">@color/verde</item>
     </style>
 
     <style name="Theme.Calculadora" parent="Base.Theme.Calculadora" />
@@ -14,7 +14,7 @@
     </style>
     <style name="SymbolButton">
         <item name="android:background">@color/gris</item>
-        <item name="android:textColor">@color/azul</item>
+        <item name="android:textColor">@color/verde</item>
         <item name="android:textSize">32sp</item>
         <item name="android:textAllCaps">false</item>
     </style>
