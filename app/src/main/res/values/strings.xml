@@ -11,10 +11,10 @@
     <string name="buttonEight">8</string>
     <string name="buttonNine">9</string>
     <string name="buttonComma">,</string>
-    <string name="buttonClear">C</string>
+    <string name="buttonClear">CE</string>
     <string name="buttonEqual">=</string>
     <string name="buttonPlus">+</string>
     <string name="buttonMinus">-</string>
-    <string name="buttonMul">*</string>
+    <string name="buttonMul">x</string>
     <string name="buttonDiv">/</string>
 </resources>
